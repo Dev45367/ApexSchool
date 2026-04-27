@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import EnquiryForm from './components/EnquiryForm'
 import MapPreview from './components/MapPreview'
 import SectionHeader from './components/SectionHeader'
@@ -17,6 +18,28 @@ import schoolEntrance from './assets/SchoolOut2.png'
 import schoolBuilding from './assets/SchoolIn1.png'
 import campusPhoto from './assets/SchoolOut.png'
 import './App.css'
+
+type IconName =
+  | 'arrow-right'
+  | 'book-open'
+  | 'calendar'
+  | 'camera'
+  | 'check-circle'
+  | 'clock'
+  | 'compass'
+  | 'contact'
+  | 'globe'
+  | 'graduation-cap'
+  | 'heart-handshake'
+  | 'home'
+  | 'layers'
+  | 'mail'
+  | 'map-pin'
+  | 'medal'
+  | 'school'
+  | 'shield'
+  | 'sparkles'
+  | 'users'
 
 const galleryImages = [
   {
@@ -41,6 +64,182 @@ const galleryImages = [
   },
 ]
 
+function Icon({ name }: { name: IconName }) {
+  const paths: Record<IconName, ReactNode> = {
+    'arrow-right': <path d="M5 12h14m-5-5 5 5-5 5" />,
+    'book-open': (
+      <>
+        <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4H11v15H5.5A2.5 2.5 0 0 0 3 21.5z" />
+        <path d="M21 6.5A2.5 2.5 0 0 0 18.5 4H13v15h5.5A2.5 2.5 0 0 1 21 21.5z" />
+      </>
+    ),
+    calendar: (
+      <>
+        <rect x="3" y="5" width="18" height="16" rx="2" />
+        <path d="M16 3v4M8 3v4M3 10h18" />
+      </>
+    ),
+    camera: (
+      <>
+        <path d="M4 8h3l2-3h6l2 3h3v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />
+        <circle cx="12" cy="14" r="4" />
+      </>
+    ),
+    'check-circle': (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="m8.5 12 2.3 2.3 4.7-4.8" />
+      </>
+    ),
+    clock: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 2" />
+      </>
+    ),
+    compass: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="m14.5 9.5-1.8 5-5 1.8 1.8-5z" />
+      </>
+    ),
+    contact: (
+      <>
+        <path d="M19 18v-1a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v1" />
+        <circle cx="12" cy="8" r="4" />
+      </>
+    ),
+    globe: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+      </>
+    ),
+    'graduation-cap': (
+      <>
+        <path d="m3 10 9-4 9 4-9 4z" />
+        <path d="M7 12v4.5c0 .7 2.2 1.5 5 1.5s5-.8 5-1.5V12" />
+      </>
+    ),
+    'heart-handshake': (
+      <>
+        <path d="M7 12.5 9.6 10a2.1 2.1 0 0 1 3 0l.4.4a2 2 0 0 0 2.8 0l2.2-2.2" />
+        <path d="M5 9 3.6 7.6a3 3 0 0 1 4.2-4.2L9 4.6l1.2-1.2a3 3 0 0 1 4.2 4.2L13 9" />
+        <path d="m3 13 3-3 3 3 3-3 3 3 3-3" />
+      </>
+    ),
+    home: (
+      <>
+        <path d="M4 10.5 12 4l8 6.5" />
+        <path d="M6 9.5V20h12V9.5" />
+      </>
+    ),
+    layers: (
+      <>
+        <path d="m12 4 8 4-8 4-8-4z" />
+        <path d="m4 12 8 4 8-4" />
+        <path d="m4 16 8 4 8-4" />
+      </>
+    ),
+    mail: (
+      <>
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m4 7 8 6 8-6" />
+      </>
+    ),
+    'map-pin': (
+      <>
+        <path d="M12 21s6-5.3 6-11a6 6 0 1 0-12 0c0 5.7 6 11 6 11Z" />
+        <circle cx="12" cy="10" r="2.5" />
+      </>
+    ),
+    medal: (
+      <>
+        <circle cx="12" cy="10" r="4" />
+        <path d="m8.5 14.5-1.2 6L12 18l4.7 2.5-1.2-6" />
+      </>
+    ),
+    school: (
+      <>
+        <path d="M3 10 12 5l9 5" />
+        <path d="M5 10v9h14v-9" />
+        <path d="M9 19v-5h6v5" />
+      </>
+    ),
+    shield: (
+      <>
+        <path d="M12 3 5 6v5c0 5 3.4 8.8 7 10 3.6-1.2 7-5 7-10V6z" />
+        <path d="m9.5 12 1.8 1.8 3.7-3.8" />
+      </>
+    ),
+    sparkles: (
+      <>
+        <path d="m12 3 1.4 3.6L17 8l-3.6 1.4L12 13l-1.4-3.6L7 8l3.6-1.4z" />
+        <path d="m5 14 .8 2L8 17l-2.2.8L5 20l-.8-2.2L2 17l2.2-.8z" />
+      </>
+    ),
+    users: (
+      <>
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M22 21v-2a4 4 0 0 0-3-3.9" />
+        <path d="M16 3.1a4 4 0 0 1 0 7.8" />
+      </>
+    ),
+  }
+
+  return (
+    <svg
+      aria-hidden="true"
+      className="ui-icon"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {paths[name]}
+    </svg>
+  )
+}
+
+const navIcons: Record<(typeof navigation)[number][0], IconName> = {
+  About: 'school',
+  Academics: 'book-open',
+  Facilities: 'sparkles',
+  Admissions: 'graduation-cap',
+  Gallery: 'camera',
+  Contact: 'contact',
+}
+
+const highlightIcons: Record<(typeof heroHighlights)[number][1], IconName> = {
+  'Classes offered': 'layers',
+  'Medium of learning': 'globe',
+  Established: 'calendar',
+  'School hours': 'clock',
+}
+
+const valueIcons: Record<(typeof values)[number]['title'], IconName> = {
+  'Value Education': 'medal',
+  'Academic Growth': 'book-open',
+  'Teaching Strategy': 'compass',
+  'Parent Partnership': 'heart-handshake',
+}
+
+const facilityIcons: Record<(typeof facilities)[number], IconName> = {
+  'Modern classrooms': 'school',
+  'Safe campus environment': 'shield',
+  'Regular assessments': 'check-circle',
+  'Doubt support': 'users',
+  'Parent-teacher interaction': 'heart-handshake',
+  'Disciplined school routine': 'clock',
+  'Activity-based learning': 'sparkles',
+  'Clean learning spaces': 'home',
+}
+
+const admissionIcons: IconName[] = ['mail', 'contact', 'check-circle']
+
 function App() {
   return (
     <main className="site-shell">
@@ -56,12 +255,14 @@ function App() {
         <nav className="nav-links" aria-label="Main navigation">
           {navigation.map(([label, href]) => (
             <a href={href} key={href}>
+              <Icon name={navIcons[label]} />
               {label}
             </a>
           ))}
         </nav>
 
         <a className="nav-action" href="#enquiry">
+          <Icon name="arrow-right" />
           Admission Open
         </a>
       </header>
@@ -84,16 +285,27 @@ function App() {
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="#enquiry">
+              <Icon name="mail" />
               Enquire for Admission
             </a>
             <a className="secondary-action" href="#contact">
+              <Icon name="map-pin" />
               Visit Campus
             </a>
           </div>
           <div className="hero-trust" aria-label="Apex School quick strengths">
-            <span>English Medium</span>
-            <span>Nursery to X</span>
-            <span>Jhotwara Campus</span>
+            <span>
+              <Icon name="globe" />
+              English Medium
+            </span>
+            <span>
+              <Icon name="graduation-cap" />
+              Nursery to X
+            </span>
+            <span>
+              <Icon name="map-pin" />
+              Jhotwara Campus
+            </span>
           </div>
         </div>
       </section>
@@ -101,8 +313,14 @@ function App() {
       <section className="highlights-band" aria-label="School highlights">
         {heroHighlights.map(([value, label]) => (
           <div key={label}>
-            <strong>{value}</strong>
-            <span>{label}</span>
+            <span className="highlight-icon">
+              <Icon name={highlightIcons[label]} />
+            </span>
+
+            <div className="highlight-content">
+              <strong>{value}</strong>
+              <span className="highlight-label">{label}</span>
+            </div>
           </div>
         ))}
       </section>
@@ -138,9 +356,12 @@ function App() {
         <div className="value-grid">
           {values.map((value, index) => (
             <article className="value-card" key={value.title}>
-              <span aria-hidden="true">0{index + 1}</span>
+              <span aria-hidden="true">
+                <Icon name={valueIcons[value.title]} />
+              </span>
               <h3>{value.title}</h3>
               <p>{value.text}</p>
+              <small>0{index + 1}</small>
             </article>
           ))}
         </div>
@@ -174,7 +395,10 @@ function App() {
         </div>
         <div className="facility-list">
           {facilities.map((facility) => (
-            <div key={facility}>{facility}</div>
+            <div key={facility}>
+              <Icon name={facilityIcons[facility]} />
+              <span>{facility}</span>
+            </div>
           ))}
         </div>
       </section>
@@ -186,8 +410,13 @@ function App() {
           text="Parents can visit the school office during working hours or submit the enquiry form. The admission team can guide you on class availability, documents, and next steps."
         />
         <ol className="admission-steps">
-          {admissionSteps.map((step) => (
-            <li key={step}>{step}</li>
+          {admissionSteps.map((step, index) => (
+            <li key={step}>
+              <span className="admission-step-icon">
+                <Icon name={admissionIcons[index]} />
+              </span>
+              {step}
+            </li>
           ))}
         </ol>
       </section>
@@ -213,12 +442,17 @@ function App() {
         />
         <div className="gallery-grid">
           {galleryImages.map((image) => (
-            <img
-              src={image.src}
-              alt={image.alt}
-              key={image.alt}
-              style={{ objectPosition: image.position }}
-            />
+            <figure className="gallery-card" key={image.alt}>
+              <img
+                src={image.src}
+                alt={image.alt}
+                style={{ objectPosition: image.position }}
+              />
+              <figcaption>
+                <Icon name="camera" />
+                {image.alt}
+              </figcaption>
+            </figure>
           ))}
         </div>
       </section>
@@ -267,6 +501,7 @@ function App() {
             </div>
             {navigation.slice(0, 5).map(([label, href]) => (
               <a href={href} key={href}>
+                <Icon name={navIcons[label]} />
                 {label}
               </a>
             ))}
@@ -278,9 +513,16 @@ function App() {
               <p>Reach the school office for admission and campus visits.</p>
             </div>
             <div className="footer-contact-list">
-              <p>{schoolProfile.address}</p>
-              <a href={`mailto:${schoolProfile.email}`}>{schoolProfile.email}</a>
+              <p>
+                <Icon name="map-pin" />
+                <span>{schoolProfile.address}</span>
+              </p>
+              <a href={`mailto:${schoolProfile.email}`}>
+                <Icon name="mail" />
+                {schoolProfile.email}
+              </a>
               <a href={schoolProfile.mapUrl} target="_blank" rel="noreferrer">
+                <Icon name="map-pin" />
                 Open Google Maps
               </a>
             </div>
@@ -292,16 +534,25 @@ function App() {
               <p>Campus and office visits are available during working hours.</p>
             </div>
             <div className="footer-note">
-              <strong>Monday to Saturday</strong>
+              <strong>
+                <Icon name="calendar" />
+                Monday to Saturday
+              </strong>
               <span>8:00 AM - 2:00 PM</span>
             </div>
-            <a href={`mailto:${schoolProfile.email}`}>{schoolProfile.email}</a>
+            <a href={`mailto:${schoolProfile.email}`}>
+              <Icon name="mail" />
+              {schoolProfile.email}
+            </a>
           </div>
         </div>
 
         <div className="footer-bottom">
           <span>All Rights Reserved © {new Date().getFullYear()} Apex School</span>
-          <a href="#home">Back to top</a>
+          <a href="#home">
+            <Icon name="arrow-right" />
+            Back to top
+          </a>
         </div>
       </footer>
     </main>
