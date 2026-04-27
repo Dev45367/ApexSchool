@@ -1,3 +1,7 @@
+import AcademicGrowth from '../assets/AcademicGrowth.png'
+import ParentPartnership from '../assets/ParentPartnership.png'
+import TeachingStrategy from '../assets/TeachingStrategy.png'
+import ValueEducation from '../assets/ValueEducation.png'
 export const schoolProfile = {
   name: 'Apex School',
   tagline: 'English Medium | Nursery to X',
@@ -33,20 +37,24 @@ export const values = [
   {
     title: 'Value Education',
     text: 'A school culture that encourages discipline, punctuality, respect, and responsible habits.',
+    image: ValueEducation,
   },
   {
     title: 'Academic Growth',
     text: 'Regular practice, clear classroom routines, and assessments that help students improve steadily.',
+    image: AcademicGrowth,
   },
   {
     title: 'Teaching Strategy',
     text: 'Age-appropriate guidance with personal attention for different learning speeds and needs.',
+    image: TeachingStrategy,
   },
   {
     title: 'Parent Partnership',
     text: 'Open communication with parents so progress, concerns, and next steps stay visible.',
+    image: ParentPartnership,
   },
-] as const
+] as const;
 
 export const programs = [
   {

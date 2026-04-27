@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import EnquiryForm from './components/EnquiryForm'
 import MapPreview from './components/MapPreview'
 import SectionHeader from './components/SectionHeader'
@@ -21,6 +21,7 @@ import './App.css'
 
 type IconName =
   | 'arrow-right'
+  | 'arrow-top'
   | 'book-open'
   | 'calendar'
   | 'camera'
@@ -67,6 +68,15 @@ const galleryImages = [
 function Icon({ name }: { name: IconName }) {
   const paths: Record<IconName, ReactNode> = {
     'arrow-right': <path d="M5 12h14m-5-5 5 5-5 5" />,
+    'arrow-top': (
+      <path
+        d="M12 19V5M7 10l5-5 5 5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    ),
     'book-open': (
       <>
         <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4H11v15H5.5A2.5 2.5 0 0 0 3 21.5z" />
@@ -240,7 +250,27 @@ const facilityIcons: Record<(typeof facilities)[number], IconName> = {
 
 const admissionIcons: IconName[] = ['mail', 'contact', 'check-circle']
 
+
+
 function App() {
+  
+  const ScrollTop = () => {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 1000);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  if (!show) return null;
+
+  return (
+    <a href="#home" className="scroll-top-btn theme">
+      <Icon name="arrow-top" />
+    </a>
+  );
+};
   return (
     <main className="site-shell">
       <header className="topbar">
@@ -345,27 +375,52 @@ function App() {
           <img src={schoolBuilding} alt="Apex School building front" />
         </div>
       </section>
+      <section className="section values-section premium">
+  <SectionHeader
+    eyebrow="Our Focus"
+    title="The right balance of academics and values"
+    text="The school experience is planned around academic progress, self-discipline, confidence, and parent partnership."
+    align="center"
+  />
 
-      <section className="section values-section">
-        <SectionHeader
-          eyebrow="Our Focus"
-          title="The right balance of academics and values"
-          text="The school experience is planned around academic progress, self-discipline, confidence, and parent partnership."
-          align="center"
-        />
-        <div className="value-grid">
-          {values.map((value, index) => (
-            <article className="value-card" key={value.title}>
-              <span aria-hidden="true">
-                <Icon name={valueIcons[value.title]} />
-              </span>
-              <h3>{value.title}</h3>
-              <p>{value.text}</p>
-              <small>0{index + 1}</small>
-            </article>
-          ))}
+{/* </section>
+
+
+
+
+<section className="values-wrapper"> */}
+  <div className="values-container">
+
+    {values.map((value, index) => (
+      <article className="value-card-premium" key={value.title}>
+        
+        {/* Image */}
+        <div className="card-image">
+          <img src={value.image} alt={value.title} />
         </div>
-      </section>
+
+        {/* Floating Icon */}
+        <div className="card-icon">
+          <Icon name={valueIcons[value.title]} />
+        </div>
+
+        {/* Content */}
+        <div className="card-body">
+          <h3>{value.title}</h3>
+          <p>{value.text}</p>
+
+          <span className={`card-index index-${index + 1}`}>
+            0{index + 1}
+          </span>
+        </div>
+
+      </article>
+    ))}
+
+  </div>
+</section>
+
+
 
       <section className="section academics-section" id="academics">
         <SectionHeader
@@ -546,14 +601,11 @@ function App() {
             </a>
           </div>
         </div>
-
         <div className="footer-bottom">
           <span>All Rights Reserved © {new Date().getFullYear()} Apex School</span>
-          <a href="#home">
-            <Icon name="arrow-right" />
-            Back to top
-          </a>
+          <ScrollTop/>
         </div>
+        
       </footer>
     </main>
   )
