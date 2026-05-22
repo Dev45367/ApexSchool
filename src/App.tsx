@@ -219,6 +219,7 @@ const navIcons: Record<(typeof navigation)[number][0], IconName> = {
   Academics: 'book-open',
   Facilities: 'sparkles',
   Admissions: 'graduation-cap',
+  Fees: 'medal',
   Gallery: 'camera',
   Contact: 'contact',
 }
@@ -226,7 +227,7 @@ const navIcons: Record<(typeof navigation)[number][0], IconName> = {
 const highlightIcons: Record<(typeof heroHighlights)[number][1], IconName> = {
   'Classes offered': 'layers',
   'Medium of learning': 'globe',
-  Established: 'calendar',
+  Affiliation: 'shield',
   'School hours': 'clock',
 }
 
@@ -253,6 +254,7 @@ const admissionIcons: IconName[] = ['mail', 'contact', 'check-circle']
 
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const ScrollTop = () => {
   const [show, setShow] = useState(false);
@@ -273,7 +275,7 @@ function App() {
 };
   return (
     <main className="site-shell">
-      <header className="topbar">
+      <header className={`topbar ${isMenuOpen ? 'menu-open' : ''}`}>
         <a className="brand" href="#home" aria-label={`${schoolProfile.name} home`}>
           <img src={logo} alt="" />
           <span>
@@ -282,16 +284,31 @@ function App() {
           </span>
         </a>
 
-        <nav className="nav-links" aria-label="Main navigation">
+        <button 
+          className="menu-toggle" 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle navigation menu"
+        >
+          <Icon name={isMenuOpen ? 'layers' : 'layers'} /> {/* We can use layers as a placeholder or add a menu icon if available */}
+          <span className="hamburger-box">
+            <span className="hamburger-inner"></span>
+          </span>
+        </button>
+
+        <nav className={`nav-links ${isMenuOpen ? 'active' : ''}`} aria-label="Main navigation">
           {navigation.map(([label, href]) => (
-            <a href={href} key={href}>
+            <a href={href} key={href} onClick={() => setIsMenuOpen(false)}>
               <Icon name={navIcons[label]} />
               {label}
             </a>
           ))}
+          <a className="nav-action mobile-only" href="#enquiry" onClick={() => setIsMenuOpen(false)}>
+            <Icon name="arrow-right" />
+            Admission Open
+          </a>
         </nav>
 
-        <a className="nav-action" href="#enquiry">
+        <a className="nav-action desktop-only" href="#enquiry">
           <Icon name="arrow-right" />
           Admission Open
         </a>
@@ -359,6 +376,21 @@ function App() {
         </div>
         <div className="welcome-media">
           <img src={schoolBuilding} alt="Apex School building front" />
+        </div>
+      </section>
+
+      <section className="section leadership-section">
+        <div className="leadership-media">
+          <img src={schoolHero} alt="Principal of Apex School" />
+        </div>
+        <div className="leadership-copy">
+          <blockquote className="leadership-quote">
+            "Education is not just about academic excellence; it is about character building, discipline, and preparing students to face the challenges of the 21st century with confidence and integrity."
+          </blockquote>
+          <div className="leadership-meta">
+            <span className="leadership-name">Principal's Message</span>
+            <p className="leadership-title">Apex School Leadership</p>
+          </div>
         </div>
       </section>
       <section className="section values-section premium">
@@ -448,7 +480,7 @@ function App() {
         <SectionHeader
           eyebrow="Admissions"
           title="How to enrol your child at Apex School"
-          text="Parents can visit the school office during working hours or submit the enquiry form. The admission team can guide you on class availability, documents, and next steps."
+          text="Apex School follows the RBSE curriculum. Parents can visit the school office for class availability, document requirements (Transfer Certificate, Birth Certificate), and current session details."
         />
         <ol className="admission-steps">
           {admissionSteps.map((step, index) => (
@@ -460,6 +492,88 @@ function App() {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section className="section fee-section" id="fees">
+        <SectionHeader
+          eyebrow="Fee Structure"
+          title="Transparent and affordable education"
+          text="Apex School maintains a clear fee policy with no hidden charges. Fees are structured to be accessible while providing quality facilities."
+        />
+        <div className="fee-grid">
+          <article className="fee-card">
+            <h4>
+              <Icon name="medal" />
+              One-Time Fees
+            </h4>
+            <div className="fee-list">
+              <div className="fee-item">
+                <span>Registration Fee</span>
+                <strong>As per policy</strong>
+              </div>
+              <div className="fee-item">
+                <span>Admission Fee</span>
+                <strong>Standard</strong>
+              </div>
+              <div className="fee-item">
+                <span>Caution Money</span>
+                <strong>Refundable</strong>
+              </div>
+            </div>
+          </article>
+
+          <article className="fee-card">
+            <h4>
+              <Icon name="calendar" />
+              Annual/Quarterly
+            </h4>
+            <div className="fee-list">
+              <div className="fee-item">
+                <span>Composite Tuition Fee</span>
+                <strong>Quarterly</strong>
+              </div>
+              <div className="fee-item">
+                <span>Examination Fee</span>
+                <strong>Annual</strong>
+              </div>
+              <div className="fee-item">
+                <span>Activity Charges</span>
+                <strong>Includes Sports/Arts</strong>
+              </div>
+            </div>
+          </article>
+
+          <article className="fee-card">
+            <h4>
+              <Icon name="home" />
+              Optional Services
+            </h4>
+            <div className="fee-list">
+              <div className="fee-item">
+                <span>Transport Facility</span>
+                <strong>Distance-based</strong>
+              </div>
+              <div className="fee-item">
+                <span>Academic Support</span>
+                <strong>On-request</strong>
+              </div>
+              <div className="fee-item">
+                <span>Resource Materials</span>
+                <strong>Actuals</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+        
+        <div style={{ marginTop: '32px', textAlign: 'center' }}>
+          <p style={{ color: '#5f6979', fontSize: '14px', marginBottom: '16px' }}>
+            Note: Detailed class-wise fee slabs are available at the school office.
+          </p>
+          <a className="outline-action" href="#enquiry">
+            <Icon name="mail" />
+            Request Detailed Fee Schedule
+          </a>
+        </div>
       </section>
 
       <section className="enquiry-section" id="enquiry">

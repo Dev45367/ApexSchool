@@ -4,7 +4,7 @@ import TeachingStrategy from '../assets/TeachingStrategy.png'
 import ValueEducation from '../assets/ValueEducation.png'
 export const schoolProfile = {
   name: 'Apex School',
-  tagline: 'English Medium | Nursery to X',
+  tagline: 'RBSE English Medium | Nursery to XII',
   locationShort: 'Jhotwara, Jaipur',
   established: '2024',
   email: 'apexschooljaipur@mailinator.com' /* || import.meta.env.VITE_ENQUIRY_EMAIL || 'apexschooljaipur@gmail.com' */,
@@ -22,14 +22,15 @@ export const navigation = [
   ['Academics', '#academics'],
   ['Facilities', '#facilities'],
   ['Admissions', '#admissions'],
+  ['Fees', '#fees'],
   ['Gallery', '#gallery'],
   ['Contact', '#contact'],
 ] as const
 
 export const heroHighlights = [
-  ['Nursery-X', 'Classes offered'],
+  ['RBSE Board', 'Affiliation'],
+  ['Nursery-XII', 'Classes offered'],
   ['English', 'Medium of learning'],
-  ['2024', 'Established'],
   ['8 AM-2 PM', 'School hours'],
 ] as const
 
@@ -68,14 +69,14 @@ export const programs = [
     text: 'Strong foundations in English, mathematics, EVS, general awareness, reading, and writing.',
   },
   {
-    title: 'Middle School',
-    range: 'Class VI to VIII',
-    text: 'Concept clarity, regular assignments, revision planning, and guided subject practice.',
+    title: 'Secondary School',
+    range: 'Class VI to X',
+    text: 'Concept clarity, regular assignments, revision planning, and focused academic preparation.',
   },
   {
-    title: 'Senior Classes',
-    range: 'Class IX to X',
-    text: 'Focused academic preparation, disciplined study routines, and frequent progress reviews.',
+    title: 'Senior Secondary',
+    range: 'Class XI to XII',
+    text: 'Advanced study in Science, Commerce, and Humanities streams with career guidance and exam focus.',
   },
 ] as const
 
