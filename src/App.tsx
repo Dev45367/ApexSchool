@@ -308,7 +308,7 @@ function App() {
             </span>
           </div>
           <h1>{schoolProfile.name}</h1>
-          <p>
+          <p>4
             A professional English medium school for Nursery to Class X, focused
             on strong foundations, disciplined learning, and confident student
             growth.
@@ -406,7 +406,7 @@ function App() {
 
         {/* Content */}
         <div className="card-body">
-          <h3>{value.title}</h3>
+          <>{value.title}</>
           <p>{value.text}</p>
 
           <span className={`card-index index-${index + 1}`}>
