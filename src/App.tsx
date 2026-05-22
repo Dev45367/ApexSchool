@@ -308,7 +308,7 @@ function App() {
             </span>
           </div>
           <h1>{schoolProfile.name}</h1>
-          <p>4
+          <p>
             A professional English medium school for Nursery to Class X, focused
             on strong foundations, disciplined learning, and confident student
             growth.
@@ -322,20 +322,6 @@ function App() {
               <Icon name="map-pin" />
               Visit Campus
             </a>
-          </div>
-          <div className="hero-trust" aria-label="Apex School quick strengths">
-            <span>
-              <Icon name="globe" />
-              English Medium
-            </span>
-            <span>
-              <Icon name="graduation-cap" />
-              Nursery to X
-            </span>
-            <span>
-              <Icon name="map-pin" />
-              Jhotwara Campus
-            </span>
           </div>
         </div>
       </section>

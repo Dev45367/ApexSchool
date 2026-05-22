@@ -152,20 +152,26 @@
 .outline-action,
 .enquiry-form button {
   display: inline-flex;
-  min-height: 46px;
+  min-height: 52px;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  border-radius: 8px;
-  padding: 0 20px;
+  gap: 10px;
+  border-radius: 12px;
+  padding: 0 28px;
   font-weight: 700;
   letter-spacing: 0.01em;
   text-decoration: none;
   transition:
-    box-shadow 180ms ease,
-    transform 180ms ease,
-    background-color 180ms ease,
-    border-color 180ms ease;
+    box-shadow 220ms ease,
+    transform 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease;
+}
+
+.primary-action {
+  font-size: 17px;
+  padding: 0 36px;
+  box-shadow: 0 20px 40px rgba(199, 40, 47, 0.3);
 }
 
 .nav-action:hover,
@@ -173,7 +179,7 @@
 .secondary-action:hover,
 .outline-action:hover,
 .enquiry-form button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .nav-action:active,
@@ -190,17 +196,24 @@
   border: 0;
   background: linear-gradient(135deg, #d42e38, #aa1e28);
   color: #fff;
-  box-shadow: 0 14px 28px rgba(199, 40, 47, 0.2);
+}
+
+.nav-action {
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(199, 40, 47, 0.15);
 }
 
 .secondary-action {
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   color: #fff;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .outline-action {
-  border: 1px solid rgba(23, 32, 51, 0.18);
-  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(23, 32, 51, 0.22);
+  background: rgba(255, 255, 255, 0.65);
   color: #172033;
 }
 
@@ -289,27 +302,6 @@
   gap: 12px;
   margin-top: 26px;
   animation: fade-up 760ms 420ms ease both;
-}
-
-.hero-trust {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 22px;
-  animation: fade-up 760ms 520ms ease both;
-}
-
-.hero-trust span {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 13px;
-  font-weight: 700;
 }
 
 .highlights-band {
@@ -1017,7 +1009,7 @@ h3 {
 
 .footer-panel-header p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.88);
   font-size: 14px;
   line-height: 1.55;
 }
@@ -1027,7 +1019,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, 0.74);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   transition: color 220ms ease;
 }
@@ -1048,7 +1040,7 @@ h3 {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  color: rgba(255, 255, 255, 0.74);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
   line-height: 1.5;
   text-decoration: none;
@@ -1087,7 +1079,7 @@ h3 {
 }
 
 .footer-note span {
-  color: rgba(255, 255, 255, 0.74);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
   font-weight: 600;
 }
@@ -1100,7 +1092,7 @@ h3 {
 .footer-grid p,
 .footer-grid a {
   margin: 10px 0 0;
-  color: rgba(255, 255, 255, 0.74);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .footer-contact-list a,
@@ -1198,7 +1190,7 @@ h3 {
   gap: 20px;
   padding-top: 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
-  color: rgba(255, 255, 255, 0.66);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 @media (max-width: 1100px) {
